@@ -1,0 +1,3 @@
+<template>
+    logo lolo
+</template>

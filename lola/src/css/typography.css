@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+:root {
+  --font-family: "Lato";
+}
+
+/* typography */
+body {
+  font-family: var(--font-family);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.p--bold {
+  font-weight: bold;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+button {
+  font-family: var(--font-family);
+}

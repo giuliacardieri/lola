@@ -1,0 +1,22 @@
+:root {
+  --primary: #6a3853;
+  --primary-light: #8f4d71;
+  --dark: #222222;
+  --secondary: #cc90b0;
+  --light: #f9f9f9;
+  --success: #5e8043;
+  --error: #c22441;
+}
+
+/* typography */
+body {
+  background-color: var(--light);
+  color: var(--dark);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* main container */
+.lola-main {
+  padding: 2rem;
+}
