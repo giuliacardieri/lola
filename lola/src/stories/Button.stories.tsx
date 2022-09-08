@@ -1,14 +1,15 @@
-import Button from '@/components/base/TheButton.vue'
-import type { Story } from '@storybook/vue3'
-
-interface ArgTypes {
-	label: string
-}
+import TheButton from '@/components/base/TheButton.vue'
+import type { Meta, StoryFn } from '@storybook/vue3'
 
 export default {
 	title: 'Lola/Button',
-	component: Button,
+	component: TheButton,
+    decorators: [() => 
+        ({ template: '<div class="lola-main"><story/></div>' })
+    ],
 	argTypes: {
+        onClick: { action: 'clicked' },
+		ariaLabel: { control: 'text' },
 		outline: { control: 'boolean' },
 		disabled: { control: 'boolean' },
 		type: {
@@ -22,20 +23,14 @@ export default {
 		href: { control: 'text' },
 		label: { control: 'text' },
 	},
-}
+} as Meta<typeof TheButton>;
 
-const Template: Story<{
-	label: string
-	outline?: Boolean
-	disabled: boolean
-	target: string
-	href: string
-}> = (args) => ({
-	components: { Button },
+const Template: StoryFn<typeof TheButton> = (args) => ({
+	components: { TheButton },
 	setup() {
 		return { args }
 	},
-	template: '<Button v-bind="args" />',
+	template: '<TheButton v-bind="args" />',
 })
 
 export const Default = Template.bind({})
@@ -46,6 +41,12 @@ Default.args = {
 export const Outline = Template.bind({})
 Outline.args = {
 	outline: true,
+	label: 'Button',
+}
+
+export const AriaLabel = Template.bind({})
+AriaLabel.args = {
+	ariaLabel: 'This is an aria label',
 	label: 'Button',
 }
 

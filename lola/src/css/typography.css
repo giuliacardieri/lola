@@ -12,25 +12,36 @@ body {
 h1 {
   font-size: 2.5rem;
   font-weight: bold;
+  margin: 0 0 .5rem 0;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: bold;
+  margin: 0 0 .5rem 0;
 }
 
 h3 {
   font-size: 1.75rem;
   font-weight: bold;
+  margin: 0 0 .5rem 0;
 }
 
 h4 {
   font-size: 1.5rem;
   font-weight: bold;
+  margin: 0 0 .5rem 0;
 }
 
 p {
   font-size: 1rem;
+}
+
+* + h2,
+* + h3,
+* + h4,
+* + p {
+  margin-top: 1rem;
 }
 
 .p--bold {

@@ -2,7 +2,8 @@
   <a
     v-if="href"
     :class="[outline ? 'lola-button--outline' : '', 'lola-button']"
-    :disabled="disabled"
+    :aria-label="ariaLabel"
+    :aria-disabled="disabled"
     :href="href"
     :target="target"
   >
@@ -11,8 +12,10 @@
   <button
     v-else
     :class="[outline ? 'lola-button--outline' : '', 'lola-button']"
-    :disabled="disabled"
+    :aria-label="ariaLabel"
+    :aria-disabled="disabled"
     :type="type"
+    @click="doSomething()"
   >
     {{ label }}
   </button>
@@ -22,13 +25,18 @@
 import { defineProps } from "vue";
 
 defineProps({
-  outline: { type: Boolean, default: false },
+  ariaLabel: { type: String },
   disabled: { type: Boolean, default: false },
   href: { type: String },
+  label: { type: String, required: true },
+  outline: { type: Boolean, default: false },
   target: { type: String, default: "_self" },
   type: { type: String, default: "button" },
-  label: { type: String, required: true },
 });
+
+function doSomething(): void {
+  console.log("button clicked");
+}
 </script>
 
 <style scoped>
@@ -40,16 +48,20 @@ defineProps({
   font-size: 1rem;
   line-height: 1.25;
   padding: 0.75rem 1rem;
+  max-width: 100%;
+  overflow: hidden;
   text-decoration: none;
+  text-overflow: ellipsis;
   text-transform: uppercase;
   transition: 0.5s ease-in-out;
+  white-space: nowrap;
 }
 
-.lola-button:not(:disabled) {
+.lola-button:not([aria-disabled="true"]) {
   cursor: pointer;
 }
 
-.lola-button:disabled {
+.lola-button[aria-disabled="true"] {
   opacity: 0.5;
 }
 
@@ -58,8 +70,8 @@ defineProps({
   color: var(--light);
 }
 
-.lola-button:not(.lola-button--outline):not(:disabled):hover,
-.lola-button:not(:disabled):not(.lola-button--outline):focus {
+.lola-button:not(.lola-button--outline):not([aria-disabled="true"]):hover,
+.lola-button:not([aria-disabled="true"]):not(.lola-button--outline):focus {
   background-color: var(--primary-light);
   border-color: var(--primary-light);
 }
@@ -71,8 +83,8 @@ defineProps({
   font-weight: bold;
 }
 
-.lola-button--outline:hover:not(:disabled),
-.lola-button--outline:focus:not(:disabled) {
+.lola-button--outline:hover:not([aria-disabled="true"]),
+.lola-button--outline:focus:not([aria-disabled="true"]) {
   border-style: dashed;
 }
 </style>
