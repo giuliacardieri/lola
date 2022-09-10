@@ -4,8 +4,10 @@
   --dark: #222222;
   --secondary: #cc90b0;
   --light: #f9f9f9;
-  --success: #5e8043;
-  --error: #c22441;
+  --success: #506F39;
+  --success-dark: #445C30;
+  --error: #C22441;
+  --error-dark: #A32138;
 }
 
 /* typography */

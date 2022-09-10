@@ -1,4 +1,5 @@
-# lola
+# Lola
+Lola is a WIP UI components library.
 
 ## Project setup
 ```
@@ -15,10 +16,7 @@ yarn serve
 yarn build
 ```
 
-### Lints and fixes files
+### Runs storybook
 ```
-yarn lint
+yarn storybook
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

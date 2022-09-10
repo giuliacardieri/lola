@@ -12,6 +12,10 @@ export default {
 		ariaLabel: { control: 'text' },
 		outline: { control: 'boolean' },
 		disabled: { control: 'boolean' },
+		color: {
+			control: { type: 'select' },
+			options: ['primary', 'success', 'error'],
+		},
 		type: {
 			control: { type: 'select' },
 			options: ['button', 'submit', 'reset'],
@@ -35,6 +39,18 @@ const Template: StoryFn<typeof TheButton> = (args) => ({
 
 export const Default = Template.bind({})
 Default.args = {
+	label: 'Button',
+}
+
+export const Success = Template.bind({})
+Success.args = {
+	color: 'success',
+	label: 'Button',
+}
+
+export const Error = Template.bind({})
+Error.args = {
+	color: 'error',
 	label: 'Button',
 }
 

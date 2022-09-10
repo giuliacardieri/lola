@@ -1,7 +1,7 @@
 <template>
   <a
     v-if="href"
-    :class="[outline ? 'lola-button--outline' : '', 'lola-button']"
+    :class="[outline ? 'lola-button--outline' : '', color ? `lola-button--${color}` : 'lola-button--primary', 'lola-button']"
     :aria-label="ariaLabel"
     :aria-disabled="disabled"
     :href="href"
@@ -11,7 +11,7 @@
   </a>
   <button
     v-else
-    :class="[outline ? 'lola-button--outline' : '', 'lola-button']"
+    :class="[outline ? 'lola-button--outline' : '', color ? `lola-button--${color}` : 'lola-button--primary', 'lola-button']"
     :aria-label="ariaLabel"
     :aria-disabled="disabled"
     :type="type"
@@ -26,6 +26,7 @@ import { defineProps } from "vue";
 
 defineProps({
   ariaLabel: { type: String },
+  color: { type: String },
   disabled: { type: Boolean, default: false },
   href: { type: String },
   label: { type: String, required: true },
@@ -57,6 +58,38 @@ function doSomething(): void {
   white-space: nowrap;
 }
 
+.lola-button--primary:not(.lola-button--outline) {
+  background-color: var(--primary);
+}
+
+.lola-button--primary:not(.lola-button--outline):not([aria-disabled="true"]):hover,
+.lola-button--primary:not([aria-disabled="true"]):not(.lola-button--outline):focus {
+  background-color: var(--primary-light);
+  border-color: var(--primary-light);
+}
+
+.lola-button--success:not(.lola-button--outline) {
+  background-color: var(--success);
+  border: 2px solid var(--success);
+}
+
+.lola-button--success:not(.lola-button--outline):hover,
+.lola-button--success:not(.lola-button--outline):focus {
+  background-color: var(--success-dark);
+  border: 2px solid var(--success-dark);
+}
+
+.lola-button--error:not(.lola-button--outline) {
+  background-color: var(--error);
+  border: 2px solid var(--error);
+}
+
+.lola-button--error:not(.lola-button--outline):hover,
+.lola-button--error:not(.lola-button--outline):focus {
+  background-color: var(--error-dark);
+  border: 2px solid var(--error-dark);
+}
+
 .lola-button:not([aria-disabled="true"]) {
   cursor: pointer;
 }
@@ -66,14 +99,7 @@ function doSomething(): void {
 }
 
 .lola-button:not(.lola-button--outline) {
-  background-color: var(--primary);
   color: var(--light);
-}
-
-.lola-button:not(.lola-button--outline):not([aria-disabled="true"]):hover,
-.lola-button:not([aria-disabled="true"]):not(.lola-button--outline):focus {
-  background-color: var(--primary-light);
-  border-color: var(--primary-light);
 }
 
 .lola-button--outline {
