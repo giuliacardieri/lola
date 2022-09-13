@@ -37,6 +37,7 @@ const Template: StoryFn<typeof TheButton> = (args) => ({
 	template: '<TheButton v-bind="args" />',
 })
 
+/* stories */
 export const Default = Template.bind({})
 Default.args = {
 	label: 'Button',
