@@ -8,11 +8,13 @@
   --success-dark: #445C30;
   --error: #C22441;
   --error-dark: #A32138;
+
+  --border-radius: 10px;
 }
 
 /* typography */
 body {
-  background-color: var(--light);
+  background-color: #fff;
   color: var(--dark);
   line-height: 1.5;
   margin: 0;

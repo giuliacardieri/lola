@@ -1,7 +1,10 @@
 <template>
   <a
     v-if="href"
-    :class="[outline ? 'lola-button--outline' : '', color ? `lola-button--${color}` : 'lola-button--primary', 'lola-button']"
+    :class="[outline ? 'lola-button--outline' : '', 
+      color ? `lola-button--${color}` : 'lola-button--primary', 
+      'lola-button'
+    ]"
     :aria-label="ariaLabel"
     :aria-disabled="disabled"
     :href="href"
@@ -11,7 +14,10 @@
   </a>
   <button
     v-else
-    :class="[outline ? 'lola-button--outline' : '', color ? `lola-button--${color}` : 'lola-button--primary', 'lola-button']"
+    :class="[outline ? 'lola-button--outline' : '',
+      color ? `lola-button--${color}` : 'lola-button--primary', 
+      'lola-button'
+    ]"
     :aria-label="ariaLabel"
     :aria-disabled="disabled"
     :type="type"
@@ -43,12 +49,12 @@ function doSomething(): void {
 <style scoped>
 .lola-button {
   border: 2px solid var(--primary);
-  border-radius: 10px;
+  border-radius: var( --border-radius);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: inline-block;
   font-size: 1rem;
   line-height: 1.25;
-  padding: 0.75rem 1rem;
+  padding: .5rem .75rem;
   max-width: 100%;
   overflow: hidden;
   text-decoration: none;
